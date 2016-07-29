@@ -6,6 +6,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.1.2'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath "io.realm:realm-gradle-plugin:1.1.0"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -16,6 +18,28 @@ allprojects {
     repositories {
         jcenter()
     }
+}
+
+ext {
+    //sdk
+    compileSdkVersion =  23
+    minSdkVersion = 15
+    targetSdkVersion = 23
+    buildToolsVersion = '24.0.0'
+    versionCode = 1
+    versionName = '1.0'
+    supportLibVersion = '23.4.0'
+    jUnitVersion = '4.12'
+
+    //app dependencies
+    gsonVersion = '2.4'
+    rxJavaVersion = '1.1.6'
+    rxAndroidVersion = '1.2.1'
+    retrofitVersion = '2.1.0'
+    daggerVersion = '2.0.2'
+    butterknifeVersion = '8.2.1'
+
+
 }
 
 task clean(type: Delete) {
