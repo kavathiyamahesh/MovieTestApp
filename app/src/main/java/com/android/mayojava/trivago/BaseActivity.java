@@ -1,13 +1,16 @@
 package com.android.mayojava.trivago;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
+/**
+ * Base activity
+ */
 public class BaseActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void startFragment(Fragment fragment, int container) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(container, fragment);
+        transaction.commit();
     }
 }
