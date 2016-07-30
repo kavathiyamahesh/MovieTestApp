@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Trivago</string>
+    <string name="action_search">Search</string>
+    <string name="text_popular_movie">Popular movies</string>
+    <string name="content_description_movie_image">movie image</string>
+
+    <string name="text_ratings">ratings:</string>
 </resources>

@@ -1,8 +1,0 @@
-package com.android.mayojava.trivago.domain.models;
-
-/**
- * Movie class Model
- */
-public class Movie {
-
-}

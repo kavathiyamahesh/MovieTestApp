@@ -49,6 +49,9 @@ dependencies {
     compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
 
+    //okhttp logging
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+
     //gson
     compile "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
 
