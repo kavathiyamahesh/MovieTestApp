@@ -1,12 +1,12 @@
 
-package com.android.mayojava.trivago.domain.models;
+package com.android.mayojava.trivago.repository.models;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("org.jsonschema2pojo")
-public class Logo {
+public class Banner {
 
     @SerializedName("full")
     @Expose

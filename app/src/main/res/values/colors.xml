@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="text_primary_light">#ffffffff</color>
+
+    <color name="color_popular_movies_bg">#F1F1F1F1</color>
+    <color name="color_item_image_view_bg_color">#ff4e5d64</color>
+
+    <color name="load_more_transparent_bg">#1A000000</color>
+
 </resources>

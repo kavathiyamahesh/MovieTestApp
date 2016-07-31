@@ -1,5 +1,5 @@
 
-package com.android.mayojava.trivago.domain.models;
+package com.android.mayojava.trivago.repository.models;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;

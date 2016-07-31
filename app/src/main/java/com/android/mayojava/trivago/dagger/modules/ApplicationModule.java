@@ -1,5 +1,7 @@
 package com.android.mayojava.trivago.dagger.modules;
 
+import android.content.Context;
+
 import com.android.mayojava.trivago.TrivagoMoviesApplication;
 
 import javax.inject.Singleton;
@@ -21,6 +23,12 @@ public class ApplicationModule {
     @Singleton
     @Provides
     TrivagoMoviesApplication providesApplication() {
+        return sApplication;
+    }
+
+    @Singleton
+    @Provides
+    Context providesContext() {
         return sApplication;
     }
 }

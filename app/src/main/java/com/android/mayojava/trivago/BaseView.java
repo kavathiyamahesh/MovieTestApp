@@ -5,5 +5,5 @@ package com.android.mayojava.trivago;
  */
 public interface BaseView<T> {
 
-    void setPresenter();
+    void setPresenter(T presenter);
 }

@@ -6,7 +6,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_popular_movies"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" android:background="@color/color_popular_movies_bg"/>
 
     <!-- loading progress -->
     <ProgressBar
@@ -16,5 +16,17 @@
         android:indeterminate="true"
         android:layout_gravity="center"
         android:visibility="gone"/>
+
+    <!-- indeterminate progress bar that shows when we reach the bottom of the list -->
+    <ProgressBar
+        android:id="@+id/progress_bar_loading_more_movies"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:background="@color/load_more_transparent_bg"
+        android:paddingBottom="@dimen/margin_small"
+        android:paddingTop="@dimen/margin_small"/>
 
 </FrameLayout>

@@ -1,5 +1,5 @@
 
-package com.android.mayojava.trivago.domain.models;
+package com.android.mayojava.trivago.repository.models;
 
 import java.util.ArrayList;
 import java.util.List;
