@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#F1F1F1</color>
 
     <color name="text_primary_light">#ffffffff</color>
 
@@ -10,5 +10,7 @@
     <color name="color_item_image_view_bg_color">#ff4e5d64</color>
 
     <color name="load_more_transparent_bg">#1A000000</color>
+
+    <color name="movie_info_bg">#1AFFFFFF</color>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.android.mayojava.trivago.popularmovies;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -16,6 +17,7 @@ import com.android.mayojava.trivago.dagger.components.DaggerApiComponent;
 import com.android.mayojava.trivago.dagger.modules.ApiModule;
 import com.android.mayojava.trivago.popularmovies.di.ActivityPresenterModule;
 import com.android.mayojava.trivago.popularmovies.di.DaggerActivityComponent;
+import com.android.mayojava.trivago.search.SearchActivity;
 
 import javax.inject.Inject;
 
@@ -75,6 +77,14 @@ public class PopularMoviesActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+            case R.id.menu_search:
+                startActivity(new Intent(this, SearchActivity.class));
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 

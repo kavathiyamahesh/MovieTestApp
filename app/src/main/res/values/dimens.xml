@@ -9,4 +9,5 @@
     <dimen name="movie_item_height">248dp</dimen>
 
     <dimen name="insets">1dp</dimen>
+    <dimen name="elevation">4dp</dimen>
 </resources>
