@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -20,7 +20,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.mayojava.trivago.R;
-import com.android.mayojava.trivago.custom.InsetItemDecoration;
+import com.android.mayojava.trivago.custom.VerticalSpaceItemDecoration;
 import com.android.mayojava.trivago.repository.models.search.SearchResult;
 import com.android.mayojava.trivago.search.adapter.SearchMoviesRecyclerAdapter;
 
@@ -42,6 +42,7 @@ public class SearchFragment extends Fragment implements SearchMoviesContract.Vie
     private SearchMoviesContract.Presenter mPresenter;
     private SearchMoviesRecyclerAdapter mRecyclerAdapter;
     private int page  = 1;
+    private final int VERTICAL_ITEM_SPACE = 48;
 
     public static Fragment newInstance(Bundle args) {
         Fragment fragment = new SearchFragment();
@@ -61,7 +62,8 @@ public class SearchFragment extends Fragment implements SearchMoviesContract.Vie
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search_movies, container, false);
         ButterKnife.bind(this, view);
 
@@ -111,8 +113,10 @@ public class SearchFragment extends Fragment implements SearchMoviesContract.Vie
     }
 
     private void initializeRecyclerView() {
-        mRecyclerViewSearchResult.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        mRecyclerViewSearchResult.addItemDecoration(new InsetItemDecoration(getContext()));
+        mRecyclerViewSearchResult.setLayoutManager(new LinearLayoutManager(getContext(),
+                LinearLayoutManager.VERTICAL, false));
+        mRecyclerViewSearchResult.addItemDecoration(
+                new VerticalSpaceItemDecoration(VERTICAL_ITEM_SPACE));
     }
 
     @Override

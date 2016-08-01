@@ -40,13 +40,13 @@ public class SearchMoviesPresenter implements SearchMoviesContract.Presenter {
             mView.showLoadingProgress();
         }
 
-        mSubscription = mMovieDataRepository.searchMovies("query", String.valueOf(page),
+        mSubscription = mMovieDataRepository.searchMovies(searchTerm, String.valueOf(page),
                 "10", "full,images")
 
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(searchResults -> {
-                    if (mView.isSearchResultEmpty()) {
+                    if (mView.isSearchResultEmpty() || page == 1) {
                         mView.setSearchResult(searchResults);
                     } else {
                         mView.updateResultList(searchResults);

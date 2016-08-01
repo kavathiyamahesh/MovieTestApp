@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.android.mayojava.trivago.R;
 import com.android.mayojava.trivago.custom.CustomLeadingMarginSpan2;
+import com.android.mayojava.trivago.repository.models.search.Movie;
 import com.android.mayojava.trivago.repository.models.search.SearchResult;
 import com.squareup.picasso.Picasso;
 
@@ -47,17 +48,39 @@ public class SearchMoviesRecyclerAdapter extends
 
         String url = result.getMovie().getImages().getPoster().getThumb();
 
-        holder.mMovieTitleTextView.setText(result.getMovie().getTitle());
-        holder.mMovieReleaseYearTextView.setText(result.getMovie().getYear().toString());
-        holder.mRatingsTextView.setText(String.valueOf(result.getMovie().getRating()));
+        holder.mMovieTitleTextView.setText(String.format("%s: %s", mContext.
+                getString(R.string.movie_title),result.getMovie().getTitle()));
 
-        Picasso.with(mContext)
-                .load(url)
-                .into(holder.mMovieImageView);
+        Movie movie = result.getMovie();
 
-        SpannableString overview = new SpannableString(result.getMovie().getOverview());
-        overview.setSpan(new CustomLeadingMarginSpan2(3, 220), 0, overview.length(), 0);
-        holder.mMovieOverview.setText(overview);
+        if (movie.getYear() != null) {
+            holder.mMovieReleaseYearTextView.setText(String.format("%s: %s",
+                    mContext.getString(R.string.movie_year), String.valueOf(movie.getYear())));
+        }
+
+        if (movie.getRating() != null) {
+            holder.mRatingsTextView.setText(String.format("%s %s", mContext.
+                    getString(R.string.text_ratings), String.valueOf(movie.getRating())));
+        } else {
+            holder.mRatingsTextView.setText(String.format("%s %s",
+                    mContext.getString(R.string.text_ratings), "n/r"));
+        }
+
+
+        if (url != null) {
+            Picasso.with(mContext)
+                    .load(url)
+                    .into(holder.mMovieImageView);
+        }
+
+        String movieOverview = result.getMovie().getOverview();
+
+        if (movieOverview != null) {
+            SpannableString overview = new SpannableString(movieOverview);
+            overview.setSpan(new CustomLeadingMarginSpan2(3, 220), 0, overview.length(), 0);
+            holder.mMovieOverview.setText(overview);
+        }
+
     }
 
     @Override

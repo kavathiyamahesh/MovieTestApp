@@ -10,7 +10,8 @@
             android:id="@+id/toolbar_search_movies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="@dimen/elevation">
+            android:elevation="@dimen/elevation"
+            android:theme="@style/Toolbar">
 
             <EditText
                 android:id="@+id/edit_text_search_movies"

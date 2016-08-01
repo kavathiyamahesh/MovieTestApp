@@ -5,8 +5,11 @@
     <string name="text_popular_movie">Popular movies</string>
     <string name="content_description_movie_image">movie image</string>
 
-    <string name="text_ratings">ratings:</string>
+    <string name="text_ratings">Rating </string>
     <string name="hint_search_movies">Search Movies</string>
 
     <string name="text_movie_overview">Overview</string>
+
+    <string name="movie_title">Title </string>
+    <string name="movie_year">Year </string>
 </resources>

@@ -11,6 +11,6 @@
 
     <color name="load_more_transparent_bg">#1A000000</color>
 
-    <color name="movie_info_bg">#1AFFFFFF</color>
+    <color name="movie_info_bg">#80000000</color>
 
 </resources>

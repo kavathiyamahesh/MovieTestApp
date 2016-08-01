@@ -3,12 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginRight="@dimen/activity_horizontal_margin">
+    android:layout_marginRight="@dimen/activity_horizontal_margin" android:background="#3C000000">
 
     <ImageView
         android:id="@+id/image_view_movie_thumb_nail"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="240dp"
         android:scaleType="centerCrop"
         android:background="@color/color_item_image_view_bg_color"
         android:contentDescription="@string/content_description_movie_image"
@@ -20,7 +20,6 @@
         android:id="@+id/text_view_movie_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Avengers"
         android:paddingBottom="8dp"/>
 
     <!-- ratings and released year -->
@@ -34,27 +33,29 @@
         <TextView
             android:id="@+id/text_view_release_year"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:gravity="start"
-            android:text="2009"/>
+            android:layout_height="wrap_content"
+            android:gravity="start" />
 
         <!-- movie ratings -->
         <TextView
             android:id="@+id/text_view_ratings"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_gravity="end"
-            android:text="ratings: 9.8/10"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="end" />
     </FrameLayout>
 
     <!-- movie overview -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold"
-        android:text="@string/text_movie_overview"/>
+        android:text="@string/text_movie_overview"
+        android:layout_marginBottom="4dp"/>
     <TextView
         android:id="@+id/text_view_movie_overview"
-        android:textSize="18.0sp"
+        android:textSize="12sp"
+        android:lineSpacingExtra="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
