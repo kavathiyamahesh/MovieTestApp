@@ -33,6 +33,8 @@ public class MovieDetailsActivity extends BaseActivity {
     public static final String ARG_OVERVIEW = "overview";
     public static final String ARG_RATINGS = "ratings";
     public static final String ARG_TRAILER = "trailer";
+    public static final String ARG_GENRE = "genre";
+    public static final String ARG_YEAR = "year";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

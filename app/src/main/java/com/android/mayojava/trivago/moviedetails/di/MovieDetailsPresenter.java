@@ -13,14 +13,11 @@ import javax.inject.Inject;
 public class MovieDetailsPresenter implements MovieDetailsContract.Presenter {
     @NonNull
     private final MovieDetailsContract.View mView;
-    @NonNull
-    private final MovieDataRepository mMovieDataRepository;
 
     @Inject
-    public MovieDetailsPresenter(MovieDetailsContract.View view,
-                                 MovieDataRepository movieDataRepository) {
+    public MovieDetailsPresenter(MovieDetailsContract.View view) {
         this.mView = view;
-        this.mMovieDataRepository = movieDataRepository;
+
     }
 
     @Inject
@@ -70,6 +67,7 @@ public class MovieDetailsPresenter implements MovieDetailsContract.Presenter {
     public void setRatings(Double ratings) {
         if (ratings != null) {
             String res = String.format("%.1f", (ratings/10.0) * 5.0);
+            int s = 2;
             mView.showRatings(Float.parseFloat(res));
         }
     }
@@ -78,6 +76,20 @@ public class MovieDetailsPresenter implements MovieDetailsContract.Presenter {
     public void setTrailer(String trailerUrl) {
         if (trailerUrl != null) {
             mView.setMovieTrailerUrl(trailerUrl);
+        }
+    }
+
+    @Override
+    public void setGenre(String genre) {
+        if (genre != null) {
+            mView.setGenre(genre);
+        }
+    }
+
+    @Override
+    public void setYear(String year) {
+        if (year != null) {
+            mView.setYear(year);
         }
     }
 }

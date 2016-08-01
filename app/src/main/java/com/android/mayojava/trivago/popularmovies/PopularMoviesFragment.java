@@ -65,6 +65,7 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
         super.onCreate(savedInstanceState);
         mPopularMovieList = new ArrayList<>();
         mRecyclerAdapter = new PopularMoviesRecyclerAdapter(getContext(), mPopularMovieList);
+        mRecyclerAdapter.setRecyclerViewItemClickListener(this);
     }
 
     @Nullable
@@ -204,11 +205,11 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
         bundle.putString(MovieDetailsActivity.ARG_MOVIE_POSTER, popularMovie.getImages().getPoster().getFull());
         bundle.putString(MovieDetailsActivity.ARG_MOVIE_TITLE, popularMovie.getTitle());
         bundle.putString(MovieDetailsActivity.ARG_OVERVIEW, popularMovie.getOverview());
-        bundle.putString(MovieDetailsActivity.ARG_RATINGS, String.valueOf(popularMovie.getRating()));
+        bundle.putDouble(MovieDetailsActivity.ARG_RATINGS, popularMovie.getRating());
         bundle.putString(MovieDetailsActivity.ARG_TAGLINE, popularMovie.getTagline());
         bundle.putString(MovieDetailsActivity.ARG_TRAILER, popularMovie.getTrailer());
-        bundle.putString("GENRE", popularMovie.getGenres().toString());
-        bundle.putString("Released", popularMovie.getReleased());
+        bundle.putString(MovieDetailsActivity.ARG_GENRE, popularMovie.getGenres().toString());
+        bundle.putString(MovieDetailsActivity.ARG_YEAR, popularMovie.getReleased());
         return bundle;
     }
 }

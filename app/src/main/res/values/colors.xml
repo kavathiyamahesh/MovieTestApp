@@ -13,4 +13,6 @@
 
     <color name="movie_info_bg">#80000000</color>
 
+    <color name="color_link">#1976D2</color>
+
 </resources>

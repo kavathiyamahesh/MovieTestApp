@@ -15,4 +15,6 @@
     <string name="text_header_tagline">Tagline</string>
     <string name="text_header_ratings">Ratings</string>
     <string name="text_header_trailer">Trailer</string>
+    <string name="text_header_genre">Genre</string>
+    <string name="text_header_year">Year</string>
 </resources>

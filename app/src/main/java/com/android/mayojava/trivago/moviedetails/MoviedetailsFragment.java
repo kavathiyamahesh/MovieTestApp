@@ -32,6 +32,10 @@ public class MovieDetailsFragment extends Fragment  implements MovieDetailsContr
     @BindView(R.id.details_rating_bar) AppCompatRatingBar mRatingBar;
     @BindView(R.id.text_view_trailer_header) TextView mTextViewTrailerHeader;
     @BindView(R.id.text_view_trailer_url) TextView mTextViewTrailerUrl;
+    @BindView(R.id.text_view_genre_header) TextView mTextViewGenreHeader;
+    @BindView(R.id.text_view_genre_details) TextView mTextViewGenre;
+    @BindView(R.id.text_view_year_header) TextView mTextViewYearHeader;
+    @BindView(R.id.text_view_year_details) TextView mYearDetails;
 
     MovieDetailsContract.Presenter mPresenter;
 
@@ -78,8 +82,13 @@ public class MovieDetailsFragment extends Fragment  implements MovieDetailsContr
         Bundle params = getArguments();
 
         mPresenter.loadPosterImage(params.getString(MovieDetailsActivity.ARG_MOVIE_POSTER));
-        mPresenter.setOverview(MovieDetailsActivity.ARG_OVERVIEW);
-        mPresenter.setTagline(MovieDetailsActivity.ARG_TAGLINE);
+        mPresenter.setOverview(params.getString(MovieDetailsActivity.ARG_OVERVIEW));
+        mPresenter.setTagline(params.getString(MovieDetailsActivity.ARG_TAGLINE));
+        mPresenter.setRatings(params.getDouble(MovieDetailsActivity.ARG_RATINGS));
+        mPresenter.setTitle(params.getString(MovieDetailsActivity.ARG_MOVIE_TITLE));
+        mPresenter.setTrailer(params.getString(MovieDetailsActivity.ARG_TRAILER));
+        mPresenter.setYear(params.getString(MovieDetailsActivity.ARG_YEAR));
+        mPresenter.setGenre(params.getString(MovieDetailsActivity.ARG_GENRE));
     }
 
     @Override
@@ -122,5 +131,19 @@ public class MovieDetailsFragment extends Fragment  implements MovieDetailsContr
         mTextViewTrailerHeader.setVisibility(View.VISIBLE);
         mTextViewTrailerUrl.setVisibility(View.VISIBLE);
         mTextViewTrailerUrl.setText(url);
+    }
+
+    @Override
+    public void setYear(String year) {
+        mTextViewYearHeader.setVisibility(View.VISIBLE);
+        mYearDetails.setVisibility(View.VISIBLE);
+        mYearDetails.setText(year);
+    }
+
+    @Override
+    public void setGenre(String genre) {
+        mTextViewGenreHeader.setVisibility(View.VISIBLE);
+        mTextViewGenre.setVisibility(View.VISIBLE);
+        mTextViewGenre.setText(genre);
     }
 }

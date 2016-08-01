@@ -20,6 +20,10 @@ public interface MovieDetailsContract {
         void showRatings(float ratings);
 
         void setMovieTrailerUrl(String url);
+
+        void setYear(String year);
+
+        void setGenre(String genre);
     }
 
     interface Presenter extends BasePresenter {
@@ -34,5 +38,9 @@ public interface MovieDetailsContract {
         void setRatings(Double ratings);
 
         void setTrailer(String trailerUrl);
+
+        void setYear(String year);
+
+        void setGenre(String genre);
     }
 }

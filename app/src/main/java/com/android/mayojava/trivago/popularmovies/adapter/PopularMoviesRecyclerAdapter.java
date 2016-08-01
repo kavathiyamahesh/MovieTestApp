@@ -81,9 +81,11 @@ public class PopularMoviesRecyclerAdapter extends
 
         public ViewHolder(View itemView, RecyclerViewItemClickListener itemClickListener) {
             super(itemView);
+            this.onItemClickListener = itemClickListener;
+
+            itemView.setOnTouchListener(this);
 
             ButterKnife.bind(this, itemView);
-            this.onItemClickListener = itemClickListener;
         }
 
         @Override
@@ -93,7 +95,7 @@ public class PopularMoviesRecyclerAdapter extends
                 this.onItemClickListener.onItemClick(v, getAdapterPosition(),
                         event.getX(), event.getY());
             }
-            return false;
+            return true;
         }
     }
 
