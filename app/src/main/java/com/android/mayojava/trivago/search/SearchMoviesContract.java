@@ -19,6 +19,10 @@ public interface SearchMoviesContract {
 
         void hideLoadingProgress();
 
+        void showLoadMoreProgress();
+
+        void hideShowMoreProgress();
+
         boolean isSearchResultEmpty();
 
         void showToast(String message);
@@ -30,5 +34,7 @@ public interface SearchMoviesContract {
         void onDestroy();
 
         boolean isLoading();
+
+        void onListEndReached(int newPage, String searchTerm);
     }
 }

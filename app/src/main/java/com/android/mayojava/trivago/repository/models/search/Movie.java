@@ -36,7 +36,7 @@ public class Movie {
     private Integer runtime;
     @SerializedName("trailer")
     @Expose
-    private Object trailer;
+    private String trailer;
     @SerializedName("homepage")
     @Expose
     private String homepage;
@@ -196,7 +196,7 @@ public class Movie {
      * @return
      *     The trailer
      */
-    public Object getTrailer() {
+    public String getTrailer() {
         return trailer;
     }
 
@@ -205,7 +205,7 @@ public class Movie {
      * @param trailer
      *     The trailer
      */
-    public void setTrailer(Object trailer) {
+    public void setTrailer(String trailer) {
         this.trailer = trailer;
     }
 

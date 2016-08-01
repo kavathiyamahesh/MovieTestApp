@@ -38,7 +38,6 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
 
     PopularMoviesContract.Presenter mPresenter;
 
-    private int page = 1;
     private PopularMoviesRecyclerAdapter mRecyclerAdapter;
     private List<PopularMovie> mPopularMovieList;
 
@@ -86,7 +85,7 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
         super.onViewCreated(view, savedInstanceState);
 
         //load popular movies
-        mPresenter.loadPopularMovies(page);
+        mPresenter.loadPopularMovies(1);
     }
 
     @Override
@@ -166,7 +165,8 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
                     getLayoutManager()).findFirstVisibleItemPosition();
 
             if (visibleItemCount + pastVisibleItems >= totalItemCount && !mPresenter.isLoading()) {
-                mPresenter.onListEndReached(++page);
+                int newPage = mRecyclerAdapter.getItemCount()/10 + 1;
+                mPresenter.onListEndReached(newPage);
             }
 
             //check if scrolling up
@@ -202,7 +202,8 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
 
     private Bundle createDetailsBundle(PopularMovie popularMovie) {
         Bundle bundle = new Bundle();
-        bundle.putString(MovieDetailsActivity.ARG_MOVIE_POSTER, popularMovie.getImages().getPoster().getFull());
+        bundle.putString(MovieDetailsActivity.ARG_MOVIE_POSTER, popularMovie.getImages().
+                getPoster().getFull());
         bundle.putString(MovieDetailsActivity.ARG_MOVIE_TITLE, popularMovie.getTitle());
         bundle.putString(MovieDetailsActivity.ARG_OVERVIEW, popularMovie.getOverview());
         bundle.putDouble(MovieDetailsActivity.ARG_RATINGS, popularMovie.getRating());

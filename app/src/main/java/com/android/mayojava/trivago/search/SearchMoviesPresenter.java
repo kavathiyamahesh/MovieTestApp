@@ -59,6 +59,7 @@ public class SearchMoviesPresenter implements SearchMoviesContract.Presenter {
     @Override
     public void hideProgressLoaders() {
         mView.hideLoadingProgress();
+        mView.hideShowMoreProgress();
         isLoading = false;
     }
 
@@ -72,6 +73,13 @@ public class SearchMoviesPresenter implements SearchMoviesContract.Presenter {
     @Override
     public boolean isLoading() {
         return isLoading;
+    }
+
+    @Override
+    public void onListEndReached(int newPage, String searchTerm) {
+        mView.showLoadMoreProgress();
+        querySearchApi(searchTerm, newPage);
+        isLoading = true;
     }
 
 
