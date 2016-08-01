@@ -1,4 +1,4 @@
-package com.android.mayojava.trivago;
+package com.android.mayojava.trivago.base;
 
 /**
  * Created by mayowa.adegeye on 29/07/2016.

@@ -1,4 +1,4 @@
-package com.android.mayojava.trivago;
+package com.android.mayojava.trivago.base;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;

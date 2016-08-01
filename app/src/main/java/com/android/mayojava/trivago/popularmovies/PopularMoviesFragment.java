@@ -1,5 +1,6 @@
 package com.android.mayojava.trivago.popularmovies;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,7 +14,9 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.mayojava.trivago.R;
+import com.android.mayojava.trivago.RecyclerViewItemClickListener;
 import com.android.mayojava.trivago.custom.InsetItemDecoration;
+import com.android.mayojava.trivago.moviedetails.MovieDetailsActivity;
 import com.android.mayojava.trivago.popularmovies.adapter.PopularMoviesRecyclerAdapter;
 import com.android.mayojava.trivago.repository.models.PopularMovie;
 
@@ -26,7 +29,9 @@ import butterknife.ButterKnife;
 /**
  * Popular movies fragment
  */
-public class PopularMoviesFragment extends Fragment implements PopularMoviesContract.View {
+public class PopularMoviesFragment extends Fragment implements PopularMoviesContract.View,
+        RecyclerViewItemClickListener {
+
     @BindView(R.id.recycler_view_popular_movies) RecyclerView mPopularMoviesRecyclerView;
     @BindView(R.id.progress_bar_indeterminate) ProgressBar mProgressBarIndeterminate;
     @BindView(R.id.progress_bar_loading_more_movies) ProgressBar mLoadMoreIndeterminateProgressBar;
@@ -46,7 +51,7 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
     public static Fragment newInstance(Bundle args) {
         Fragment fragment = new PopularMoviesFragment();
 
-        if (args != null) {
+        if (args == null) {
             args = new Bundle();
         }
 
@@ -180,5 +185,30 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
 
     private PopularMoviesActivity getHostActivity() {
         return (PopularMoviesActivity)getActivity();
+    }
+
+
+    @Override
+    public void onItemClick(View v, int position, float x, float y) {
+        Intent intent = new Intent(getContext(), MovieDetailsActivity.class);
+
+        PopularMovie popularMovie = mRecyclerAdapter.getItemAt(position);
+
+        intent.putExtras(createDetailsBundle(popularMovie));
+        startActivity(intent);
+
+    }
+
+    private Bundle createDetailsBundle(PopularMovie popularMovie) {
+        Bundle bundle = new Bundle();
+        bundle.putString(MovieDetailsActivity.ARG_MOVIE_POSTER, popularMovie.getImages().getPoster().getFull());
+        bundle.putString(MovieDetailsActivity.ARG_MOVIE_TITLE, popularMovie.getTitle());
+        bundle.putString(MovieDetailsActivity.ARG_OVERVIEW, popularMovie.getOverview());
+        bundle.putString(MovieDetailsActivity.ARG_RATINGS, String.valueOf(popularMovie.getRating()));
+        bundle.putString(MovieDetailsActivity.ARG_TAGLINE, popularMovie.getTagline());
+        bundle.putString(MovieDetailsActivity.ARG_TRAILER, popularMovie.getTrailer());
+        bundle.putString("GENRE", popularMovie.getGenres().toString());
+        bundle.putString("Released", popularMovie.getReleased());
+        return bundle;
     }
 }

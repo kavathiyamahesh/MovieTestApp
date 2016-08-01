@@ -20,9 +20,8 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:theme="@style/AppTheme.OverlapSystemBar"
-            android:name=".search.SearchActivity" />
+        <activity android:name=".search.SearchActivity" />
+        <activity android:name=".moviedetails.MovieDetailsActivity" />
     </application>
 
 </manifest>

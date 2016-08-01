@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.android.mayojava.trivago.custom.ObservableScrollView
+        android:id="@+id/details_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image_view_movie_poster"
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/text_view_movie_title"
+                android:layout_width="match_parent"
+                android:layout_height="96dp"
+                android:paddingLeft="48dp"
+                android:paddingRight="48dp"
+                android:layout_below="@+id/image_view_movie_poster"
+                android:gravity="center_vertical"
+                android:textSize="20sp"
+                android:textColor="#FFF"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:background="@color/movie_info_bg"
+                android:elevation="4dp"/>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="64dp"
+                android:layout_below="@+id/text_view_movie_title">
+
+                <TextView
+                    android:id="@+id/text_view_tagline_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_header_tagline"
+                    style="@style/MovieDetailsHeaderStyle"/>
+
+                <TextView
+                    android:id="@+id/text_view_tagline_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/MovieDetailsInfoStyle"/>
+
+
+                <TextView
+                    android:id="@+id/text_view_overview_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_movie_overview"
+                    style="@style/MovieDetailsHeaderStyle"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/text_view_overview_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/MovieDetailsInfoStyle"/>
+
+
+                <TextView
+                    android:id="@+id/text_view_ratings_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_header_ratings"
+                    style="@style/MovieDetailsHeaderStyle"
+                    android:layout_marginTop="8dp"/>
+
+                <android.support.v7.widget.AppCompatRatingBar
+                    android:id="@+id/details_rating_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="5"
+                    android:isIndicator="true"
+                    android:stepSize="0.1"
+                    android:visibility="gone"/>
+
+
+                <TextView
+                    android:id="@+id/text_view_trailer_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_header_trailer"
+                    style="@style/MovieDetailsHeaderStyle"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/text_view_trailer_url"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    style="@style/MovieDetailsInfoStyle"/>
+
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </com.android.mayojava.trivago.custom.ObservableScrollView>
+
+</FrameLayout>

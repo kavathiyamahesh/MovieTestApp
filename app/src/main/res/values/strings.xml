@@ -12,4 +12,7 @@
 
     <string name="movie_title">Title </string>
     <string name="movie_year">Year </string>
+    <string name="text_header_tagline">Tagline</string>
+    <string name="text_header_ratings">Ratings</string>
+    <string name="text_header_trailer">Trailer</string>
 </resources>

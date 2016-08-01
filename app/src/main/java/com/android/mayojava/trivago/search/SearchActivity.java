@@ -3,7 +3,7 @@ package com.android.mayojava.trivago.search;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.android.mayojava.trivago.BaseActivity;
+import com.android.mayojava.trivago.base.BaseActivity;
 import com.android.mayojava.trivago.R;
 import com.android.mayojava.trivago.TrivagoMoviesApplication;
 import com.android.mayojava.trivago.dagger.components.ApiComponent;

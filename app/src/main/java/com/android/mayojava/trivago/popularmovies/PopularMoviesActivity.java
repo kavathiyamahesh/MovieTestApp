@@ -9,9 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.animation.AnimationUtils;
 
-import com.android.mayojava.trivago.BaseActivity;
 import com.android.mayojava.trivago.R;
 import com.android.mayojava.trivago.TrivagoMoviesApplication;
+import com.android.mayojava.trivago.base.BaseActivity;
 import com.android.mayojava.trivago.dagger.components.ApiComponent;
 import com.android.mayojava.trivago.dagger.components.DaggerApiComponent;
 import com.android.mayojava.trivago.dagger.modules.ApiModule;

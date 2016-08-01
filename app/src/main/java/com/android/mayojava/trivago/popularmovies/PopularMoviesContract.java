@@ -1,8 +1,8 @@
 package com.android.mayojava.trivago.popularmovies;
 
 
-import com.android.mayojava.trivago.BasePresenter;
-import com.android.mayojava.trivago.BaseView;
+import com.android.mayojava.trivago.base.BasePresenter;
+import com.android.mayojava.trivago.base.BaseView;
 import com.android.mayojava.trivago.repository.models.PopularMovie;
 
 import java.util.List;

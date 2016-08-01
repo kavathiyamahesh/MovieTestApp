@@ -1,7 +1,7 @@
 package com.android.mayojava.trivago.search;
 
-import com.android.mayojava.trivago.BasePresenter;
-import com.android.mayojava.trivago.BaseView;
+import com.android.mayojava.trivago.base.BasePresenter;
+import com.android.mayojava.trivago.base.BaseView;
 import com.android.mayojava.trivago.repository.models.search.SearchResult;
 
 import java.util.List;
