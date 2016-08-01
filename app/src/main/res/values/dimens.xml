@@ -3,11 +3,33 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!-- paddings and margins -->
     <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_large">48dp</dimen>
+    <dimen name="x_large_bottom_padding">64dp</dimen>
+    <dimen name="xsmall_padding">4dp</dimen>
 
     <dimen name="movie_item_width">-1dp</dimen>
     <dimen name="movie_item_height">248dp</dimen>
 
     <dimen name="insets">1dp</dimen>
     <dimen name="elevation">4dp</dimen>
+
+    <!-- movie details -->
+    <dimen name="movie_details_image_and_title_height">320dp</dimen>
+    <dimen name="movie_detail_title_height">96dp</dimen>
+
+    <!-- search screen -->
+    <dimen name="content_padding">10dp</dimen>
+    <dimen name="item_corner_radius">2dp</dimen>
+    <dimen name="items_outer_margin">6dp</dimen>
+    <dimen name="search_result_image_height">240dp</dimen>
+
+    <!-- text sizes -->
+    <dimen name="text_size_normal">20sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="x_text_size_small">12sp</dimen>
+
+
 </resources>

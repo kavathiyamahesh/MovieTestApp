@@ -26,17 +26,15 @@
             android:id="@+id/text_view_movie_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="title: Ade our boy"
             android:textColor="@android:color/white"
-            android:textSize="16sp"/>
+            android:textSize="@dimen/text_size_medium"/>
 
         <TextView
             android:id="@+id/text_view_movie_released_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@android:color/white"
-            android:text="released: 2016-12-12"/>
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@android:color/white" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,17 +45,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
-                android:textSize="14sp"/>
+                android:textSize="@dimen/text_size_small"/>
 
             <RatingBar
                 android:id="@+id/ratings_movie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:isIndicator="true"
-                android:max="10"
-                android:stepSize="0.2"
-                android:numStars="5"
-                android:padding="4dp"
+                android:stepSize="0.1"
+                android:numStars="@integer/num_of_stars"
+                android:padding="@dimen/xsmall_padding"
                 style="?android:attr/ratingBarStyleSmall"/>
         </LinearLayout>
     </LinearLayout>

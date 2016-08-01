@@ -16,7 +16,7 @@
             <!-- movie image and titile -->
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="320dp"
+                android:layout_height="@dimen/movie_details_image_and_title_height"
                 android:id="@+id/layout_movie_cover_title">
 
                 <ImageView
@@ -28,18 +28,18 @@
                 <TextView
                     android:id="@+id/text_view_movie_title"
                     android:layout_width="match_parent"
-                    android:layout_height="96dp"
-                    android:paddingLeft="48dp"
-                    android:paddingRight="48dp"
+                    android:layout_height="@dimen/movie_detail_title_height"
+                    android:paddingLeft="@dimen/margin_large"
+                    android:paddingRight="@dimen/margin_large"
                     android:layout_below="@+id/image_view_movie_poster"
                     android:gravity="center_vertical"
-                    android:textSize="20sp"
-                    android:textColor="#FFF"
+                    android:textSize="@dimen/text_size_normal"
+                    android:textColor="@color/movie_detail_title_color"
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:layout_gravity="bottom"
                     android:background="@color/movie_info_bg"
-                    android:elevation="4dp"/>
+                    android:elevation="@dimen/elevation"/>
 
             </FrameLayout>
             <!-- end movie image and title -->
@@ -49,10 +49,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="64dp"
+                android:paddingLeft="@dimen/margin_small"
+                android:paddingRight="@dimen/margin_small"
+                android:paddingTop="@dimen/margin_small"
+                android:paddingBottom="@dimen/x_large_bottom_padding"
                 android:layout_below="@+id/layout_movie_cover_title">
 
                 <!-- tag line -->
@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/text_header_genre"
                     style="@style/MovieDetailsHeaderStyle"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="@dimen/margin_small"/>
 
                 <TextView
                     android:id="@+id/text_view_genre_details"
@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/text_header_year"
                     style="@style/MovieDetailsHeaderStyle"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="@dimen/margin_small"/>
 
                 <TextView
                     android:id="@+id/text_view_year_details"
@@ -112,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/text_movie_overview"
                     style="@style/MovieDetailsHeaderStyle"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="@dimen/margin_small"/>
 
                 <TextView
                     android:id="@+id/text_view_overview_details"
@@ -129,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/text_header_ratings"
                     style="@style/MovieDetailsHeaderStyle"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="@dimen/margin_small"/>
 
                 <android.support.v7.widget.AppCompatRatingBar
                     android:id="@+id/details_rating_bar"
@@ -137,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:visibility="gone"
                     style="?android:attr/ratingBarStyleSmall"
-                    android:numStars="5"
+                    android:numStars="@integer/num_of_stars"
                     android:stepSize="0.1"
                     android:isIndicator="true" />
                 <!-- end ratings -->
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/text_header_trailer"
                     style="@style/MovieDetailsHeaderStyle"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="@dimen/margin_small"/>
 
                 <TextView
                     android:id="@+id/text_view_trailer_url"

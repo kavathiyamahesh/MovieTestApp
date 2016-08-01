@@ -25,6 +25,8 @@ public interface SearchMoviesContract {
 
         boolean isSearchResultEmpty();
 
+        void clearSearchResultAdapter();
+
         void showToast(String message);
     }
 
@@ -36,5 +38,7 @@ public interface SearchMoviesContract {
         boolean isLoading();
 
         void onListEndReached(int newPage, String searchTerm);
+
+        void clearSearchResult();
     }
 }

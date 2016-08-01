@@ -100,6 +100,7 @@ public class SearchFragment extends Fragment implements SearchMoviesContract.Vie
                 break;
             case R.id.menu_search_clear:
                 mSearchEditText.setText("");
+                mPresenter.clearSearchResult();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -176,6 +177,11 @@ public class SearchFragment extends Fragment implements SearchMoviesContract.Vie
     }
 
     @Override
+    public void clearSearchResultAdapter() {
+        mRecyclerAdapter.clearContent();
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         mPresenter.onDestroy();
@@ -221,7 +227,12 @@ public class SearchFragment extends Fragment implements SearchMoviesContract.Vie
         @Override
         public void afterTextChanged(Editable s) {
             mSearchTerm = s.toString();
-            mPresenter.querySearchApi(mSearchTerm, 1);
+            if (mSearchTerm.trim().length() > 0) {
+                mPresenter.querySearchApi(mSearchTerm, 1);
+            } else {
+                mPresenter.clearSearchResult();
+            }
+
         }
     };
 

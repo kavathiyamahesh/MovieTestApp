@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_margin="6dp"
-    app:cardCornerRadius="2dp"
-    app:contentPadding="10dp">
+    android:layout_margin="@dimen/items_outer_margin"
+    app:cardCornerRadius="@dimen/item_corner_radius"
+    app:contentPadding="@dimen/content_padding">
 
     <LinearLayout
         android:orientation="vertical"
@@ -18,11 +18,11 @@
         <ImageView
             android:id="@+id/image_view_movie_thumb_nail"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="@dimen/search_result_image_height"
             android:scaleType="centerCrop"
             android:background="@color/color_item_image_view_bg_color"
             android:contentDescription="@string/content_description_movie_image"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="@dimen/margin_small"/>
 
 
         <!-- movie title -->
@@ -30,15 +30,15 @@
             android:id="@+id/text_view_movie_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
+            android:paddingBottom="@dimen/margin_small"
             android:textColor="@android:color/black"/>
 
         <!-- ratings and released year -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp">
+            android:paddingTop="@dimen/margin_small"
+            android:paddingBottom="@dimen/margin_small">
 
             <!-- movie released year -->
             <TextView
@@ -61,14 +61,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_size_small"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:text="@string/text_movie_overview"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="@dimen/xsmall_padding"/>
         <TextView
             android:id="@+id/text_view_movie_overview"
-            android:textSize="12sp"
+            android:textSize="@dimen/x_text_size_small"
             android:lineSpacingExtra="6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

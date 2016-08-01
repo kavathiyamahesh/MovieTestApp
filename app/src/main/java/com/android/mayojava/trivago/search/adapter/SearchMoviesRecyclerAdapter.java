@@ -119,6 +119,14 @@ public class SearchMoviesRecyclerAdapter extends
         notifyDataSetChanged();
     }
 
+    /**
+     * clear search result list content
+     */
+    public void clearContent() {
+        mSearchResults.clear();
+        notifyDataSetChanged();
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnTouchListener {
         @BindView(R.id.text_view_movie_title) TextView mMovieTitleTextView;
         @BindView(R.id.text_view_release_year) TextView mMovieReleaseYearTextView;

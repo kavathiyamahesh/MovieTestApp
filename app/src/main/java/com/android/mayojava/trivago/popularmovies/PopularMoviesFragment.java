@@ -4,12 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -19,6 +25,7 @@ import com.android.mayojava.trivago.custom.InsetItemDecoration;
 import com.android.mayojava.trivago.moviedetails.MovieDetailsActivity;
 import com.android.mayojava.trivago.popularmovies.adapter.PopularMoviesRecyclerAdapter;
 import com.android.mayojava.trivago.repository.models.PopularMovie;
+import com.android.mayojava.trivago.search.SearchActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +42,7 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
     @BindView(R.id.recycler_view_popular_movies) RecyclerView mPopularMoviesRecyclerView;
     @BindView(R.id.progress_bar_indeterminate) ProgressBar mProgressBarIndeterminate;
     @BindView(R.id.progress_bar_loading_more_movies) ProgressBar mLoadMoreIndeterminateProgressBar;
+    @BindView(R.id.toolbar) Toolbar mToolbar;
 
     PopularMoviesContract.Presenter mPresenter;
 
@@ -65,6 +73,8 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
         mPopularMovieList = new ArrayList<>();
         mRecyclerAdapter = new PopularMoviesRecyclerAdapter(getContext(), mPopularMovieList);
         mRecyclerAdapter.setRecyclerViewItemClickListener(this);
+
+        setHasOptionsMenu(true);
     }
 
     @Nullable
@@ -83,6 +93,8 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        setupToolbar();
 
         //load popular movies
         mPresenter.loadPopularMovies(1);
@@ -106,6 +118,26 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
     public void onDestroy() {
         super.onDestroy();
         mPresenter.onDestroy();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        inflater.inflate(R.menu.menu_search, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                getHostActivity().finish();
+                break;
+            case R.id.menu_search:
+                startActivity(new Intent(getHostActivity(), SearchActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -172,12 +204,12 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
             //check if scrolling up
             if (dy > 10) {
                 if (!scrollDirectionFlag) {
-                    getHostActivity().showToolbar();
+                    showToolbar();
                     scrollDirectionFlag = true;
                 }
             } else if (dy < - 10) {
                 if (scrollDirectionFlag) {
-                    getHostActivity().hideToolbar();
+                    hideToolbar();
                     scrollDirectionFlag = false;
                 }
             }
@@ -200,6 +232,18 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
 
     }
 
+    private void setupToolbar() {
+        getHostActivity().setSupportActionBar(mToolbar);
+        ActionBar actionBar = getHostActivity().getSupportActionBar();
+
+        mToolbar.setTitle(getString(R.string.text_popular_movie));
+
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+        }
+    }
+
     private Bundle createDetailsBundle(PopularMovie popularMovie) {
         Bundle bundle = new Bundle();
         bundle.putString(MovieDetailsActivity.ARG_MOVIE_POSTER, popularMovie.getImages().
@@ -212,5 +256,13 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
         bundle.putString(MovieDetailsActivity.ARG_GENRE, popularMovie.getGenres().toString());
         bundle.putString(MovieDetailsActivity.ARG_YEAR, popularMovie.getReleased());
         return bundle;
+    }
+
+    public void showToolbar() {
+        mToolbar.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.translate_up_off));
+    }
+
+    public void hideToolbar() {
+        mToolbar.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.translate_up_on));
     }
 }

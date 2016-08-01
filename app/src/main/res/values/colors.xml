@@ -16,5 +16,6 @@
     <color name="color_link">#1976D2</color>
 
     <color name="search_recycler_grey_bg">#E0E0E0</color>
+    <color name="movie_detail_title_color">#FFF</color>
 
 </resources>

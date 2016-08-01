@@ -82,5 +82,8 @@ public class SearchMoviesPresenter implements SearchMoviesContract.Presenter {
         isLoading = true;
     }
 
-
+    @Override
+    public void clearSearchResult() {
+        mView.clearSearchResultAdapter();
+    }
 }
