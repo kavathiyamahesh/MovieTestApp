@@ -2,6 +2,7 @@ package com.android.mayojava.trivago.repository.datasource;
 
 import com.android.mayojava.trivago.repository.MoviesRepository;
 import com.android.mayojava.trivago.repository.models.PopularMovie;
+import com.android.mayojava.trivago.repository.models.search.SearchResult;
 
 import java.util.List;
 
@@ -18,7 +19,8 @@ public class MoviesLocalDataStore implements MoviesRepository {
     }
 
     @Override
-    public Observable<List<PopularMovie>> searchMovies(String query, String extended) {
+    public Observable<List<SearchResult>> searchMovies(String query, String page,
+                                                       String limit, String extended) {
         return null;
     }
 }

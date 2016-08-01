@@ -2,16 +2,33 @@ package com.android.mayojava.trivago.search;
 
 import com.android.mayojava.trivago.BasePresenter;
 import com.android.mayojava.trivago.BaseView;
+import com.android.mayojava.trivago.repository.models.search.SearchResult;
+
+import java.util.List;
 
 /**
  *
  */
-public class SearchMoviesContract {
+public interface SearchMoviesContract {
     interface View extends BaseView<Presenter> {
+        void setSearchResult(List<SearchResult> searchResults);
 
+        void updateResultList(List<SearchResult> searchResults);
+
+        void showLoadingProgress();
+
+        void hideLoadingProgress();
+
+        boolean isSearchResultEmpty();
+
+        void showToast(String message);
     }
 
     interface Presenter extends BasePresenter {
+        void querySearchApi(String searchTerm, int page);
 
+        void onDestroy();
+
+        boolean isLoading();
     }
 }

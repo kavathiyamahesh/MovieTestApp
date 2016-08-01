@@ -7,4 +7,6 @@
 
     <string name="text_ratings">ratings:</string>
     <string name="hint_search_movies">Search Movies</string>
+
+    <string name="text_movie_overview">Overview</string>
 </resources>

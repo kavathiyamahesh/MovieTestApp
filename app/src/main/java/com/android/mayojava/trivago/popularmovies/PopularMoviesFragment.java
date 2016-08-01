@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.android.mayojava.trivago.R;
 import com.android.mayojava.trivago.custom.InsetItemDecoration;
@@ -127,6 +128,11 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
     @Override
     public void hideShowLoadingMoreProgress() {
         mLoadMoreIndeterminateProgressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
     }
 
     @Override

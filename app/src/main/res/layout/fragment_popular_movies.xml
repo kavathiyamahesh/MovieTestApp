@@ -17,16 +17,6 @@
         android:layout_gravity="center"
         android:visibility="gone"/>
 
-    <!-- indeterminate progress bar that shows when we reach the bottom of the list -->
-    <ProgressBar
-        android:id="@+id/progress_bar_loading_more_movies"
-        android:layout_gravity="bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="gone"
-        android:background="@color/load_more_transparent_bg"
-        android:paddingBottom="@dimen/margin_small"
-        android:paddingTop="@dimen/margin_small"/>
+    <include layout="@layout/pagination_indeterminate_progress_bar" />
 
 </FrameLayout>

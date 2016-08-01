@@ -25,6 +25,8 @@ public interface PopularMoviesContract {
         void hideShowLoadingMoreProgress();
 
         boolean isMovieListEmpty();
+
+        void showToast(String message);
     }
 
     interface Presenter extends BasePresenter {

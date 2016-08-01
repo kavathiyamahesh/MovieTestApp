@@ -46,7 +46,10 @@ public class PopularMoviesPresenter implements PopularMoviesContract.Presenter {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(popularMovies -> {mView.updateRecyclerAdapter(popularMovies);},
-                        error->{ hideProgressLoaders(); }, ()->{ hideProgressLoaders(); });
+                        error->{
+                            mView.showToast(error.getMessage());
+                            hideProgressLoaders();
+                        }, ()->{ hideProgressLoaders(); });
     }
 
     @Override
@@ -63,12 +66,13 @@ public class PopularMoviesPresenter implements PopularMoviesContract.Presenter {
 
     @Override
     public void onDestroy() {
-        if (!mSubscription.isUnsubscribed()) {
+        if (mSubscription != null && !mSubscription.isUnsubscribed()) {
             mSubscription.unsubscribe();
         }
     }
 
-    private void hideProgressLoaders() {
+    @Override
+    public void hideProgressLoaders() {
         mView.hideProgressBar();
         mView.hideShowLoadingMoreProgress();
         isLoading = false;

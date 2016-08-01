@@ -2,6 +2,7 @@ package com.android.mayojava.trivago.repository;
 
 import com.android.mayojava.trivago.repository.datasource.MovieDataStoreFactory;
 import com.android.mayojava.trivago.repository.models.PopularMovie;
+import com.android.mayojava.trivago.repository.models.search.SearchResult;
 
 import java.util.List;
 
@@ -25,7 +26,9 @@ public class MovieDataRepository  {
     }
 
 
-    public Observable<List<PopularMovie>> searchMovies(String query, String extended) {
-        return movieDataStoreFactory.createCloudMoviesRepository().searchMovies(query,extended);
+    public Observable<List<SearchResult>> searchMovies(String query, String page,
+                                                       String limit, String extended) {
+        return movieDataStoreFactory.createCloudMoviesRepository().searchMovies(query, page,
+                limit, extended);
     }
 }

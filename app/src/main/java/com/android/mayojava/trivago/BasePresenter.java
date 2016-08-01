@@ -1,7 +1,10 @@
 package com.android.mayojava.trivago;
 
 /**
- * Created by mayowa.adegeye on 29/07/2016.
+ * Base presenter class
  */
 public interface BasePresenter {
+    void hideProgressLoaders();
+
+    void onDestroy();
 }

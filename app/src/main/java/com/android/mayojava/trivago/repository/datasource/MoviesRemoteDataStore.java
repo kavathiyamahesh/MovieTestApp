@@ -3,6 +3,7 @@ package com.android.mayojava.trivago.repository.datasource;
 import com.android.mayojava.trivago.repository.MoviesRepository;
 import com.android.mayojava.trivago.repository.api.MoviesService;
 import com.android.mayojava.trivago.repository.models.PopularMovie;
+import com.android.mayojava.trivago.repository.models.search.SearchResult;
 
 import java.util.List;
 
@@ -25,7 +26,8 @@ public class MoviesRemoteDataStore implements MoviesRepository {
     }
 
     @Override
-    public Observable<List<PopularMovie>> searchMovies(String query, String extended) {
-        return mMoviesApi.getMovieSearchResult(query, extended);
+    public Observable<List<SearchResult>> searchMovies(String query, String page,
+                                                       String limit, String extended) {
+        return mMoviesApi.getMovieSearchResult(query, page, limit, extended);
     }
 }

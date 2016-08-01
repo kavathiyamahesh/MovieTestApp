@@ -37,6 +37,8 @@
             android:layout_height="wrap_content"
             android:indeterminate="true"
             android:layout_gravity="center"/>
+
+        <include layout="@layout/pagination_indeterminate_progress_bar" />
     </FrameLayout>
 
 </LinearLayout>

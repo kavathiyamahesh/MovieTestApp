@@ -1,6 +1,7 @@
 package com.android.mayojava.trivago.repository.api;
 
 import com.android.mayojava.trivago.repository.models.PopularMovie;
+import com.android.mayojava.trivago.repository.models.search.SearchResult;
 
 import java.util.List;
 
@@ -34,7 +35,9 @@ public class MoviesService {
                          @Query("page") String page, @Query("extended") String extended);
 
         @GET("search/movie?")
-        Observable<List<PopularMovie>> getMovieSearchResult(@Query("query") String query,
+        Observable<List<SearchResult>> getMovieSearchResult(@Query("query") String query,
+                                                            @Query("page") String page,
+                                                            @Query("limit") String limit,
                                                             @Query("extended") String extended);
 
     }
