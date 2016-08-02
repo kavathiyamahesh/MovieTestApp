@@ -19,7 +19,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:hint="@string/hint_search_movies"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:textCursorDrawable="@drawable/custom_edit_text_cursor"/>
 
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>

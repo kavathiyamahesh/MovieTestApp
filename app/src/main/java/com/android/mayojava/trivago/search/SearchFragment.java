@@ -1,9 +1,11 @@
 package com.android.mayojava.trivago.search;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.view.menu.MenuPopupHelper;
 import android.support.v7.widget.LinearLayoutManager;
@@ -83,7 +85,8 @@ public class SearchFragment extends Fragment implements SearchMoviesContract.Vie
 
         setupToolbar();
         mSearchEditText.addTextChangedListener(mSearchTextTextWatcher);
-
+        mSearchEditText.getBackground().mutate().setColorFilter(ContextCompat.getColor(getContext(),
+                android.R.color.white), PorterDuff.Mode.SRC_ATOP);
     }
 
     @Override

@@ -67,7 +67,6 @@ public class MovieDetailsPresenter implements MovieDetailsContract.Presenter {
     public void setRatings(Double ratings) {
         if (ratings != null) {
             String res = String.format("%.1f", (ratings/10.0) * 5.0);
-            int s = 2;
             mView.showRatings(Float.parseFloat(res));
         }
     }

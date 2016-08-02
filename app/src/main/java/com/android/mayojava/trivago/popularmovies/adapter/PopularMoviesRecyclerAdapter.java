@@ -54,8 +54,8 @@ public class PopularMoviesRecyclerAdapter extends
         String url = movie.getImages().getPoster().getThumb();
 
         holder.mMovieTitle.setText(movie.getTitle());
-        holder.mMoviesRatings.setRating(movie.getRating().floatValue());
-        holder.mTextViewReleasedYear.setText(movie.getReleased());
+        holder.mMoviesRatings.setRating(computeRating(movie.getRating()));
+        holder.mTextViewReleasedYear.setText(movie.getYear().toString());
 
         Picasso.with(mContext)
                 .load(url)
@@ -125,5 +125,14 @@ public class PopularMoviesRecyclerAdapter extends
      */
     public PopularMovie getItemAt(int position) {
         return mPopularMovies.get(position);
+    }
+
+    private float computeRating(Double movieRatings) {
+        if (movieRatings != null) {
+            String res = String.format("%.1f", (movieRatings/10.0) * 5.0);
+            return Float.parseFloat(res);
+        }
+
+        return 0.0f;
     }
 }
