@@ -15,6 +15,9 @@ public class MoviesLocalDataStore implements MoviesRepository {
     @Override
     public Observable<List<PopularMovie>> popularMovies(String limit, String page,
                                                         String extended) {
+        /**
+         * TODO: load from cache
+         */
         return null;
     }
 
