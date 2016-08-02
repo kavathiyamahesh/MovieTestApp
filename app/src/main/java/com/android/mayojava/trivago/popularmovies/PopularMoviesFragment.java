@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,7 +14,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -44,7 +42,7 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
     @BindView(R.id.progress_bar_loading_more_movies) ProgressBar mLoadMoreIndeterminateProgressBar;
     @BindView(R.id.toolbar) Toolbar mToolbar;
 
-    PopularMoviesContract.Presenter mPresenter;
+    private PopularMoviesContract.Presenter mPresenter;
 
     private PopularMoviesRecyclerAdapter mRecyclerAdapter;
     private List<PopularMovie> mPopularMovieList;
@@ -200,19 +198,6 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
                 int newPage = mRecyclerAdapter.getItemCount()/10 + 1;
                 mPresenter.onListEndReached(newPage);
             }
-
-            //check if scrolling up
-            if (dy > 10) {
-                if (!scrollDirectionFlag) {
-                    showToolbar();
-                    scrollDirectionFlag = true;
-                }
-            } else if (dy < - 10) {
-                if (scrollDirectionFlag) {
-                    hideToolbar();
-                    scrollDirectionFlag = false;
-                }
-            }
         }
     };
 
@@ -228,8 +213,8 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
         PopularMovie popularMovie = mRecyclerAdapter.getItemAt(position);
 
         intent.putExtras(createDetailsBundle(popularMovie));
-        startActivity(intent);
 
+        startActivity(intent);
     }
 
     private void setupToolbar() {
@@ -256,13 +241,5 @@ public class PopularMoviesFragment extends Fragment implements PopularMoviesCont
         bundle.putString(MovieDetailsActivity.ARG_GENRE, popularMovie.getGenres().toString());
         bundle.putString(MovieDetailsActivity.ARG_YEAR, popularMovie.getReleased());
         return bundle;
-    }
-
-    public void showToolbar() {
-        mToolbar.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.translate_up_off));
-    }
-
-    public void hideToolbar() {
-        mToolbar.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.translate_up_on));
     }
 }

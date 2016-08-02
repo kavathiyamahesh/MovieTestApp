@@ -8,10 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.android.mayojava.trivago.R;
-import com.android.mayojava.trivago.moviedetails.di.MovieDetailsPresenter;
+import com.android.mayojava.trivago.custom.ObservableScrollView;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -20,7 +21,8 @@ import butterknife.ButterKnife;
 /**
  * Movie details fragment
  */
-public class MovieDetailsFragment extends Fragment  implements MovieDetailsContract.View {
+public class MovieDetailsFragment extends Fragment  implements MovieDetailsContract.View,
+        ObservableScrollView.ScrollViewListener {
 
     @BindView(R.id.image_view_movie_poster) ImageView mPosterImageView;
     @BindView(R.id.text_view_movie_title) TextView mMovieTitleTextView;
@@ -145,5 +147,10 @@ public class MovieDetailsFragment extends Fragment  implements MovieDetailsContr
         mTextViewGenreHeader.setVisibility(View.VISIBLE);
         mTextViewGenre.setVisibility(View.VISIBLE);
         mTextViewGenre.setText(genre);
+    }
+
+    @Override
+    public void onScrollChanged(ScrollView scrollView, int x, int y, int oldl, int oldt) {
+
     }
 }

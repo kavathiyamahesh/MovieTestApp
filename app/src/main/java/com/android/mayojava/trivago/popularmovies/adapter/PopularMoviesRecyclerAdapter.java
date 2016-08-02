@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.android.mayojava.trivago.R;
 import com.android.mayojava.trivago.RecyclerViewItemClickListener;
 import com.android.mayojava.trivago.repository.models.PopularMovie;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -58,12 +59,29 @@ public class PopularMoviesRecyclerAdapter extends
 
         Picasso.with(mContext)
                 .load(url)
-                .into(holder.mMovieImageView);
+                .into(holder.mMovieImageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        mPopularMovies.get(position).setMovieImageLoadedCompletely(true);
+                    }
 
+                    @Override
+                    public void onError() {
+
+                    }
+                });
+
+        if (url == null) {
+            mPopularMovies.get(position).setMovieImageLoadedCompletely(true);
+        }
     }
 
     public void setRecyclerViewItemClickListener(RecyclerViewItemClickListener onClickListener) {
         this.mRecyclerItemClickListener = onClickListener;
+    }
+
+    public boolean hasItemImageLoadedCompletely(int position) {
+        return mPopularMovies.get(position).isMovieImageLoadedCompletely();
     }
 
     @Override

@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/color_popular_movies_bg"
-        android:layout_below="@+id/toolbar"/>
+        android:layout_below="@+id/toolbar" />
 
     <!-- loading progress -->
     <ProgressBar

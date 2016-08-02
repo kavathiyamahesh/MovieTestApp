@@ -62,6 +62,8 @@ public class PopularMovie {
     @Expose
     private Images images;
 
+    private boolean isMovieImageLoadedCompletely;
+
     /**
      * 
      * @return
@@ -366,6 +368,24 @@ public class PopularMovie {
      */
     public void setImages(Images images) {
         this.images = images;
+    }
+
+    /**
+     *
+     * @return
+     *     If movie image has fetched completely from server
+     */
+    public boolean isMovieImageLoadedCompletely() {
+        return isMovieImageLoadedCompletely;
+    }
+
+    /**
+     *
+     * @param loaded
+     *     If image has completely loaded
+     */
+    public void setMovieImageLoadedCompletely(boolean loaded) {
+        this.isMovieImageLoadedCompletely = loaded;
     }
 
 }

@@ -23,7 +23,8 @@
                     android:id="@+id/image_view_movie_poster"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop"
+                    android:background="@color/color_item_image_view_bg_color"/>
 
                 <TextView
                     android:id="@+id/text_view_movie_title"
