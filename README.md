@@ -1,2 +1,3 @@
-# trivago
-trivago android challenge
+# MovieApp
+MVP Android APP with Unit Testing
+

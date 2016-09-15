@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Trivago</string>
+    <string name="app_name">MovieApp</string>
     <string name="action_search">Search</string>
     <string name="action_clear_search">Clear</string>
     <string name="text_popular_movie">Popular movies</string>

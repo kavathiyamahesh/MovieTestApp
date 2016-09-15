@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.mayojava.trivago">
+    package="com.android.mayojava.movies">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,9 +10,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".TrivagoMoviesApplication">
+        android:name="com.android.mayojava.movies.MoviesApplication">
         <activity
-            android:name=".popularmovies.PopularMoviesActivity"
+            android:name="com.android.mayojava.movies.popularmovies.PopularMoviesActivity"
             android:theme="@style/AppTheme.OverlapSystemBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,8 +20,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".search.SearchActivity" />
-        <activity android:name=".moviedetails.MovieDetailsActivity" />
+        <activity android:name="com.android.mayojava.movies.search.SearchActivity" />
+        <activity android:name="com.android.mayojava.movies.moviedetails.MovieDetailsActivity" />
     </application>
 
 </manifest>
